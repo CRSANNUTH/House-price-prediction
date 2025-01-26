@@ -14,11 +14,7 @@ Here is an example of the web form users can fill out to predict property prices
 
 ---
 
-## Demo
 
-Below is a demonstration of the app in action:
-
-![App Demo](assets/demo.gif "App in Action")
 
 ---
 

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House price prediction</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+
+        .container {
+            width: 70%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        select, input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 14px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Result Section */
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .result h2 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .result p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Get Your Property Price Estimate</h1>
+        <form method="POST">
+            <label for="area_type">Area Type:</label>
+            <select name="area_type" id="area_type" required>
+                <option value="Super built-up Area">Super built-up Area</option>
+                <option value="Plot Area">Plot Area</option>
+                <option value="Built-up Area">Built-up Area</option>
+                <option value="Villa">Villa</option>
+                <option value="Studio Apartment">Studio Apartment</option>
+                <option value="Row House">Row House</option>
+                <option value="Penthouse">Penthouse</option>
+            </select>
+
+            <label for="location">Location:</label>
+            <select name="location" id="location" required>
+                <option value="Whitefield">Whitefield</option>
+                <option value="Koramangala">Koramangala</option>
+                <option value="Indiranagar">Indiranagar</option>
+                <option value="Electronic City">Electronic City</option>
+                <option value="Marathahalli">Marathahalli</option>
+                <option value="Hebbal">Hebbal</option>
+                <option value="HSR Layout">HSR Layout</option>
+            </select>
+
+            <label for="size">Size (Bedrooms):</label>
+            <select name="size" id="size" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+            </select>
+
+            <label for="total_sqft">Total Square Feet:</label>
+            <select name="total_sqft" id="total_sqft" required>
+                <option value="600">600</option>
+                <option value="1200">1200</option>
+                <option value="1500">1500</option>
+                <option value="2000">2000</option>
+                <option value="3000">3000</option>
+                <option value="4000">4000</option>
+            </select>
+
+            <label for="bath">Bathrooms:</label>
+            <select name="bath" id="bath" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+            <label for="balcony">Balconies:</label>
+            <select name="balcony" id="balcony" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if price %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p>Area Type: <span class="highlight">{{ area_type }}</span></p>
+            <p>Location: <span class="highlight">{{ location }}</span></p>
+            <p>Size (Bedrooms): <span class="highlight">{{ size }}</span></p>
+            <p>Total Square Feet: <span class="highlight">{{ total_sqft }}</span></p>
+            <p>Bathrooms: <span class="highlight">{{ bath }}</span></p>
+            <p>Balconies: <span class="highlight">{{ balcony }}</span></p>
+            <p>Predicted Price: <span class="highlight">₹{{ price }} Lakhs</span></p>
+
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

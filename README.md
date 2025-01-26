@@ -39,6 +39,14 @@ The following diagram illustrates the architecture of the app:
 2. Enter the property details into the form.
 3. Click "Submit" to get the predicted price.
 
----
 
-## File Structure
+## Prerequisites
+Before running the application, ensure you have the following installed:
+- Python 3.x
+- Flask
+- NumPy
+- Pickle (if using a saved model)
+
+Install the required dependencies:
+```bash
+pip install flask numpy

@@ -52,11 +52,9 @@ Here is an example of the web form users can fill out to predict property prices
 
 
 
----
 
-## Application Architecture
 
-The following diagram illustrates the architecture of the app:
+
 
 ![Architecture Diagram](screenshots/image2.png "Application Architecture")
 
